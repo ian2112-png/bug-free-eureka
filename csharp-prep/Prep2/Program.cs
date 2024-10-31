@@ -16,7 +16,7 @@ class Program
         {
             letter = "A";
 
-            //Console.WriteLine("You got an A");
+            // Console.WriteLine("You got an A");
             if (remainder >= 3)
 
             letter = "A";
@@ -29,7 +29,7 @@ class Program
         }
         else if (number >=80)
         {
-            //Console.WriteLine("You got a B.");
+            // Console.WriteLine("You got a B.");
             letter = "B";
             if (remainder >= 3)
 
@@ -48,7 +48,7 @@ class Program
         }
         else if (number >=70)
         {
-            //Console.WriteLine("You got a C.");
+            // Console.WriteLine("You got a C.");
             letter = "C";
             if (remainder >= 3)
 
@@ -67,7 +67,7 @@ class Program
         }
         else if (number >=60)
         {
-            //Console.WriteLine("You got a D.");
+            // Console.WriteLine("You got a D.");
             letter = "D";
             
             if (remainder >= 3)
@@ -87,7 +87,7 @@ class Program
         }
         else if (number <60)
         {
-            //Console.WriteLine("You got an F.");
+            // Console.WriteLine("You got an F.");
             letter = "F";
 
         }
