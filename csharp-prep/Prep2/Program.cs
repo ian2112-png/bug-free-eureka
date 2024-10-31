@@ -10,31 +10,79 @@ class Program
         int number = int.Parse(Grade);
 
         string letter = "";
-
+        int remainder = number % 10;
 
         if (number >=90)
         {
+            letter = "A";
+
             //Console.WriteLine("You got an A");
+            if (remainder >= 3)
 
             letter = "A";
+
+            else
+            {
+                letter = "A-";
+            }
 
         }
         else if (number >=80)
         {
             //Console.WriteLine("You got a B.");
             letter = "B";
+            if (remainder >= 3)
+
+            letter = "B+";
+
+            else if (remainder == 3)
+            {
+                letter = "B";
+            }
+
+            else
+            {
+                letter = "B-";
+            }
 
         }
         else if (number >=70)
         {
             //Console.WriteLine("You got a C.");
             letter = "C";
+            if (remainder >= 3)
+
+            letter = "C+";
+
+            else if (remainder == 3)
+            {
+                letter = "C";
+            }
+
+            else
+            {
+                letter = "C-";
+            }
 
         }
         else if (number >=60)
         {
             //Console.WriteLine("You got a D.");
             letter = "D";
+            
+            if (remainder >= 3)
+
+            letter = "D+";
+
+            else if (remainder == 3)
+            {
+                letter = "D";
+            }
+
+            else 
+            {
+                letter = "D-";
+            }
 
         }
         else if (number <60)
