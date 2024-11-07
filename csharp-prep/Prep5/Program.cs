@@ -36,3 +36,4 @@ class Program
         Console.WriteLine($"{name}, your number squared is {square}");
     }
 }
+
