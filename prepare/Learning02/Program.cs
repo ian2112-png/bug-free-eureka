@@ -12,5 +12,13 @@ class Program
         job1.DisplayNames ();
         job2.DisplayNames ();
 
+        
+        Resume resume1 = new Resume();
+        resume1._jobs.Add(job1);
+        resume1._jobs.Add(job2);
+        resume1._personsName = "Ian Fleming";
+
+        resume1.DisplayResume ();
+        
     }
 }
