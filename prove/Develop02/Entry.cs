@@ -1,7 +1,18 @@
+using System;
 public class Entry
 {
-    public void Display()
+    private string Prompt; 
+    private string Response;
+    private string Date;
+
+    public Entry(string prompt, string response, string date)
     {
-        Console.WriteLine("Hello again");
+        Prompt = prompt;
+        Response = response;
+        Date = date; 
+    }
+     public void Display()
+    {
+        Console.WriteLine($"This entry includes Prompt: {Prompt}, Response: {Response}, Date: {Date}");
     }
 }
