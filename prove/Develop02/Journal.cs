@@ -14,9 +14,9 @@ public class Journal
    {
     Console.WriteLine("Hello bob");
    }
-      public void AddEntry()
+      public void AddEntry(Entry entry)
    {
-       
+      _entries.Add(entry);
    }
 
 

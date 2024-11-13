@@ -10,6 +10,7 @@ public class Program
          Entry entry1 = new Entry("This is a place holder for the prompt", "This is a placeholder for the response ", "This is a place holder for the date. ");
         journal._entries.Add(entry1);
         journal.DisplayEntries();
+        journal.AddEntry(entry1);
 
         entry1.Display();
 
