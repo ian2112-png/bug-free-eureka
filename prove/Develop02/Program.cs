@@ -7,12 +7,12 @@ public class Program
         Console.WriteLine("Welcome to the journal program!");
         Journal journal = new Journal();
 
-         Entry entry1 = new Entry("This is a place holder for the prompt", "This is a placeholder for the response ", "This is a place holder for the date. ");
-        journal._entries.Add(entry1);
-        journal.DisplayEntries();
-        journal.AddEntry(entry1);
+        //  Entry entry1 = new Entry("This is a place holder for the prompt", "This is a placeholder for the response ", "This is a place holder for the date. ");
+        // journal._entries.Add(entry1);
+        // journal.DisplayEntries();
+        // journal.AddEntry(entry1);
 
-        entry1.Display();
+        // entry1.Display();
 
         Prompts prompt = new Prompts();
         prompt.DisplayPrompt();

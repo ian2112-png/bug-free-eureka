@@ -10,13 +10,13 @@ public class Journal
     {
         _entries = new List<Entry>();
     }
-   public void DisplayEntries()
-   {
-    Console.WriteLine("Hello bob");
-   }
       public void AddEntry(Entry entry)
    {
       _entries.Add(entry);
+   }
+    public void DisplayEntries()
+   {
+    Console.WriteLine(_entries);
    }
 
 
