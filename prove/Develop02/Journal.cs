@@ -29,8 +29,18 @@ public class Journal
     foreach (Entry entry in _entries)
     {
     entry.Display();
-    Console.WriteLine(entry);
+    
     }
+   }
+   public void SaveFile(string journalFile)
+   {
+      using (StreamWriter outputFile = new StreamWriter(journalFile))
+      {
+         foreach (Entry entry in _entries)
+         {
+            outputFile.WriteLine($"{entry.Prompt}|{entry.Response}|{entry.Date}");
+         }
+      }
    }
 }
 

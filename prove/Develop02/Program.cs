@@ -1,5 +1,6 @@
 using System;
 using System.Net;
+using System.IO;
 
 //creating a class called program to hold the main function
 public class Program
@@ -24,9 +25,9 @@ public class Program
         {
         //showing the menu options
         Console.WriteLine("1. Add Entry" );
-        Console.WriteLine("2. Delete Entry");
-        Console.WriteLine("3. Load Entry"); 
-        Console.WriteLine("4. Save entry"); 
+        Console.WriteLine("2. Display Entry");
+        Console.WriteLine("3. Save entry"); 
+        Console.WriteLine("4. Load Entry"); 
         Console.WriteLine("5.Quit");
         
         //creating a variable called menuchoice and setting it equal to the integer value inputted by user
@@ -55,7 +56,8 @@ public class Program
                 
                 break;
             case 2:
-                Console.WriteLine("Feature not yet working");
+                Console.WriteLine("Displaying entry.");
+                journal.DisplayEntries();
                 break;
 
             case 3:
@@ -73,7 +75,7 @@ public class Program
                 Console.WriteLine("Invalid choice. Input a number between 1-5");
                 break;
         }
-        journal.DisplayEntries();
+        
         } 
         
     }
