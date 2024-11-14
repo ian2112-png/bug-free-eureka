@@ -18,12 +18,18 @@ public class Prompts
         
     //Random prompt = new Random();
     }  
-    public void DisplayPrompt()
+   
+    public string RandomPrompt()
     {
-        foreach(string prompt in _Prompt )
-        {
-        Console.WriteLine(prompt);
-        }
+        Random randomPrompt = new Random();
+        int index = randomPrompt.Next(_Prompt.Count);
+        return _Prompt[index];
+        
+    }
+     public void DisplayPrompt()
+    {
+       string prompt = RandomPrompt();
+       Console.WriteLine(prompt);
     }  
 }
 
