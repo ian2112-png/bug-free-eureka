@@ -14,6 +14,9 @@ public class Program
 
         entry1.Display();
 
+        Prompts prompt = new Prompts();
+        prompt.DisplayPrompt();
+
 
 
     }
