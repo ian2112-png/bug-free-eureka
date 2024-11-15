@@ -4,9 +4,9 @@ using System;
 public class Entry
 {
     //creating fields of type string 
-    private string Prompt; 
-    private string Response;
-    private string Date;
+    public string Prompt;
+    public string Response;
+    public string Date;
 
     //creating Entry constructor with parameters prompt, response, and date
     public Entry(string prompt, string response, string date)

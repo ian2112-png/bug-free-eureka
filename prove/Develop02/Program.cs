@@ -5,6 +5,7 @@ using System.IO;
 //creating a class called program to hold the main function
 public class Program
 {
+    
     //creating the main method
     static void Main(string[] args)
     {
@@ -25,10 +26,12 @@ public class Program
         {
         //showing the menu options
         Console.WriteLine("1. Add Entry" );
-        Console.WriteLine("2. Display Entry");
-        Console.WriteLine("3. Save entry"); 
-        Console.WriteLine("4. Load Entry"); 
-        Console.WriteLine("5.Quit");
+        Console.WriteLine("2. Delete Entry");
+        Console.WriteLine("3. Display Entry");
+
+        Console.WriteLine("4. Save entry"); 
+        Console.WriteLine("5. Load Entry"); 
+        Console.WriteLine("6.Quit");
         
         //creating a variable called menuchoice and setting it equal to the integer value inputted by user
         int menuChoice = int.Parse(Console.ReadLine());
@@ -49,26 +52,38 @@ public class Program
                 DateTime theCurrentTime = DateTime.Now;
                 string dateText = theCurrentTime.ToShortDateString(); 
 
-                Console.WriteLine($"The date is {dateText}");
         
                 Entry entry1 = new Entry(randomPrompt, response, dateText); //new instance of entry created when the user hits option 1
                 journal.AddEntry(entry1); //the add entry method is called and adds entry 1. 
                 
                 break;
+
             case 2:
+                
+                Console.WriteLine("Please enter the number of the entry you want to delete. ");
+                int deletedEntry = int.Parse(Console.ReadLine())-1;
+                journal.DeleteEntry(deletedEntry);
+                break;
+
+
+
+            case 3:
                 Console.WriteLine("Displaying entry.");
                 journal.DisplayEntries();
                 break;
 
-            case 3:
-                Console.WriteLine("Feature not yet working");
-                break;
-
             case 4:
-                Console.WriteLine("Feature not yet working");
+                Console.WriteLine("Saving entry. ");
+                journal.SaveFile("journalEntries.txt");
+
                 break;
 
             case 5:
+                Console.WriteLine("Feature not yet working");
+                journal.LoadFile("journalEntries.txt");
+                break;
+
+            case 6:
                 running = false;
                 break;
             default:
@@ -81,11 +96,3 @@ public class Program
     }
     
 }
-//For split in order to index, put a command to user to put a $ at the end of their journal entry.
-//This way I can access it with an index during the split. 
-// Journal nouns: 
-// -entry
-//  -prompts
-// -journal
-//-menu
-//-program 

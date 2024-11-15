@@ -22,6 +22,10 @@ public class Journal
       //adding entries to the list
       _entries.Add(entry);
    }
+   public void DeleteEntry(int index)
+   {
+      _entries.RemoveAt(index);
+   }
    //creating a method to display the entries
     public void DisplayEntries()
    {
@@ -41,6 +45,20 @@ public class Journal
             outputFile.WriteLine($"{entry.Prompt}|{entry.Response}|{entry.Date}");
          }
       }
+   }
+   public void LoadFile(string journalFile)
+   {
+      _entries.Clear();
+      string [] lines = System.IO.File.ReadAllLines(journalFile);
+      
+      foreach(string line in lines)
+      {
+         string[] parts = line.Split("|") ;
+         Entry entry = new Entry(parts[0], parts[1], parts[2]);
+         _entries.Add(entry);
+
+      }
+
    }
 }
 
