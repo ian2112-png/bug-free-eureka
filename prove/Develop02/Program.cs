@@ -57,12 +57,13 @@ public class Program
                 journal.AddEntry(entry1); //the add entry method is called and adds entry 1. 
                 
                 break;
-
+            //If user inputs 2, entry can be deleted
             case 2:
                 
                 Console.WriteLine("Please enter the number of the entry you want to delete. ");
                 int deletedEntry = int.Parse(Console.ReadLine())-1;
                 journal.DeleteEntry(deletedEntry);
+                journal.SaveFile("journalEntries.txt");
                 break;
 
 

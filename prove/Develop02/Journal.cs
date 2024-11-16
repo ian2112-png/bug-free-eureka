@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 //creating a public class called journal
 public class Journal
 {
    //creating a new list of entries of type Entry 
    public List<Entry> _entries;
-   //creating a variable of type integer to hold the word count
+   //creating a variable of type integer to hold the list
    private int _wordCount;
 
 
@@ -59,6 +60,17 @@ public class Journal
 
       }
 
+   }
+   public int WordCount()
+   {
+         int count = 0;
+
+      foreach (Entry entry in _entries)
+      {
+         string [] words = entry.Response.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+         count += words.Length;
+      }
+      return count;
    }
 }
 
