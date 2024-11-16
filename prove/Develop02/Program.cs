@@ -25,6 +25,7 @@ public class Program
         while (running)
         {
         //showing the menu options
+        Console.WriteLine("Please enter a number between 1-6 for what you would like to do.");
         Console.WriteLine("1. Add Entry" );
         Console.WriteLine("2. Delete Entry");
         Console.WriteLine("3. Display Entry");
@@ -39,7 +40,7 @@ public class Program
         //switch statement to go through options, depending on user choice of 1-5 from menu choices.
         
        
-        
+        //switch statement to handle possible inputs
         switch(menuChoice)
         {
             //if user puts 1, generate random prompt and display it to user
@@ -67,11 +68,16 @@ public class Program
                 break;
 
 
-
+            //if user inputs 3, entry will display
             case 3:
                 Console.WriteLine("Displaying entry.");
                 journal.DisplayEntries();
+                
+                //calling method to show total word count for the journal.
+                journal.WordCount();
                 break;
+
+            //if user inputs 4, entry will save
 
             case 4:
                 Console.WriteLine("Saving entry. ");
@@ -79,14 +85,20 @@ public class Program
 
                 break;
 
+            //if user inputs 5, entries will load
+            
+
             case 5:
-                Console.WriteLine("Feature not yet working");
+                Console.WriteLine("Loading entry");
                 journal.LoadFile("journalEntries.txt");
                 break;
 
+            //if user inputs 6, the loop will stop and the program will terminate. 
             case 6:
                 running = false;
                 break;
+            
+            //default case to handle exceptions
             default:
                 Console.WriteLine("Invalid choice. Input a number between 1-5");
                 break;

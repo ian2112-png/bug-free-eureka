@@ -20,6 +20,6 @@ public class Entry
      public void Display()
     {
         //displaying the prompt, response, and date
-        Console.WriteLine($"This entry includes Prompt: {Prompt}, Response: {Response}, Date: {Date}");
+        Console.WriteLine($"Prompt: {Prompt}. Response: {Response}. Date: {Date}");
     }
 }

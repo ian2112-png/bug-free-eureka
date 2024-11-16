@@ -8,7 +8,6 @@ public class Journal
    //creating a new list of entries of type Entry 
    public List<Entry> _entries;
    //creating a variable of type integer to hold the list
-   private int _wordCount;
 
 
    //creating the journal constructor 
@@ -69,6 +68,7 @@ public class Journal
       {
          string [] words = entry.Response.Split(" ", StringSplitOptions.RemoveEmptyEntries);
          count += words.Length;
+         Console.WriteLine(count);
       }
       return count;
    }
