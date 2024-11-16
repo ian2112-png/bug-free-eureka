@@ -36,25 +36,38 @@ public class Journal
     
     }
    }
+   //method created to save list to a .txt file
    public void SaveFile(string journalFile)
    {
+      //creates a variable to store the journalFile in
       using (StreamWriter outputFile = new StreamWriter(journalFile))
       {
+         //for loop that loops through each entry in the list
          foreach (Entry entry in _entries)
          {
+            //writes or saves the prompt, response, and date to the .txt file.
             outputFile.WriteLine($"{entry.Prompt}|{entry.Response}|{entry.Date}");
          }
       }
    }
+   //method created to load all of the entries
    public void LoadFile(string journalFile)
    {
+      //clears the entry list before adding them to avoid a duplicate, since an add method is called in case 1 of the program switch statement
       _entries.Clear();
+      
+      //reads all lines from the journalFile and stores them in an array called lines
       string [] lines = System.IO.File.ReadAllLines(journalFile);
       
+      //loops through each line in the lines array
       foreach(string line in lines)
       {
+         //splits each line into a part and stores it in an array. the | is used because it doesn't show up and can be used to separate prompt, response and date
          string[] parts = line.Split("|") ;
+
+         //creates a new instance of the Entry class and names it entry. Calls Entry constructor and passes parts index to it, effectively passing prompt, response, and date
          Entry entry = new Entry(parts[0], parts[1], parts[2]);
+         //Adds the entry to the list
          _entries.Add(entry);
 
       }
