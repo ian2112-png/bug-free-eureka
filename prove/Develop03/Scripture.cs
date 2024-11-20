@@ -1,18 +1,23 @@
-public class Scripture
+public class Scripture  //a scripture HAS a list of words and a reference. 
 {
-    private List<Words> _scripture;
+    private List<Word> _scripture;
     private Reference _reference;
-    public Scripture(Reference r)
+    public Scripture(Reference reference)
     {
-        _reference = r;
-        _scripture = new List<Words>();
+        _reference = reference;
+        _scripture = new List<Word>();
+    }
+    public void AddScripture(Word words)
+    {
+        _scripture.Add(words);
     }
     public void Display()
     {
         _reference.Display();
-        foreach (Words scripture in _scripture)
+        
+        foreach (var word in _scripture)
         {
-            Console.WriteLine(scripture);
+        Console.WriteLine(word);
         }
     }
 }
