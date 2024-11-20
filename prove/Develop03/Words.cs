@@ -1,4 +1,10 @@
 public class Words
 {
-    string _words;
+    private string _words;
+
+    public Words(string words)
+{
+    _words = words;
+    
+}
 }

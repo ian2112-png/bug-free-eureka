@@ -1,13 +1,16 @@
 public class Scripture
 {
-    List<Scripture> _scripture;
-    public Scripture()
+    private List<Words> _scripture;
+    private Reference _reference;
+    public Scripture(Reference r)
     {
-        _scripture = new List<Scripture>();
+        _reference = r;
+        _scripture = new List<Words>();
     }
     public void Display()
     {
-        foreach (Scripture scripture in _scripture)
+        _reference.Display();
+        foreach (Words scripture in _scripture)
         {
             Console.WriteLine(scripture);
         }
