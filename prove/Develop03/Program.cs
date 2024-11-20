@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 class Program
 {
+    
     static void Main(string[] args)
     {
         Reference reference1 = new Reference("John", 3, 16); 
@@ -12,8 +13,18 @@ class Program
 
         
         scripture1.AddScripture(new Word("For God so love the world that he gave His Only Begotten Son, that whosever believeth in Him shall not perish but have everlasting life"));
-        scripture1.Display();
         scripture2.AddScripture(new Word("And it came to pass that Jared was anointed king over the people, by the hand of wickedness; and he gave unto Akish his daughter to wife."));
+
+        Console.WriteLine("Welcome to scripture memorization practice. Press enter to practice or type 'quit' to quit");
+        string userAnswer = Console.ReadLine();
+
+        while (userAnswer != "quit")
+       {
+        scripture1.Display();
         scripture2.Display();
+         Console.WriteLine("Press enter to practice or type 'quit' to quit");
+        userAnswer = Console.ReadLine();
+       } 
+       Console.WriteLine("Program ended.");
     }
 }
