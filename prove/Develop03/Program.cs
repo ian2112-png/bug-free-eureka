@@ -17,13 +17,16 @@ class Program
 
         Console.WriteLine("Welcome to scripture memorization practice. Press enter to practice or type 'quit' to quit");
         string userAnswer = Console.ReadLine();
+        scripture1.Display();
+        scripture2.Display();
 
         while (userAnswer != "quit")
        {
-        scripture1.Display();
-        scripture2.Display();
+       
          Console.WriteLine("Press enter to practice or type 'quit' to quit");
         userAnswer = Console.ReadLine();
+        Console.WriteLine(scripture1.HideWords());
+
        } 
        Console.WriteLine("Program ended.");
     }

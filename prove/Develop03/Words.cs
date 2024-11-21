@@ -8,16 +8,10 @@ public class Word
     _words = words;
     
 }
-    public override string ToString()
+
+    public override string GetString()
     {
         return _words;
     }
-    //replace words with an underscore
-    public string HideWords()
-    {
-        string[] hiddenWords = _words.Split(" ");
-        Random random = new Random();
-        int index = random.Next(hiddenWords.Length);
-        hiddenWords[index] = "_";
-    }
+   
 }
