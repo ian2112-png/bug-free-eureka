@@ -9,7 +9,8 @@ public class Word
     
 }
 
-    public override string GetString()
+//this is a getter to return the string
+    public string GetString()
     {
         return _words;
     }

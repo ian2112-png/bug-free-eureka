@@ -22,15 +22,16 @@ public class Scripture  //a scripture HAS a list of words and a reference.
         //created random variable with random class
         Random random = new Random();
         int index = random.Next(hiddenWords.Length);
+        //setting the word at the random index chosen in hiddenwords to underscores
         hiddenWords[index] = new string('_', hiddenWords[index].Length);
         _scripture = new Word (string.Join(" ", hiddenWords));
-        return _scripture.ToString();
+        return _scripture.GetString();
     }
     public void Display()
     {
         _reference.Display();
         
-        Console.WriteLine(_scripture.ToString());
+        Console.WriteLine(_scripture.GetString());
         
     }
 }
