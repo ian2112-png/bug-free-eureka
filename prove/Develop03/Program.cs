@@ -24,12 +24,19 @@ class Program
 
         while (userAnswer != "quit")
        {
-       
-         Console.WriteLine("Press enter to practice or type 'quit' to quit");
-        userAnswer = Console.ReadLine();
         Console.Clear();
-        Console.WriteLine(scripture1.HideWords());
+         
+       // Console.Clear();
+        string hiddenText = (scripture1.HideWords());
+        Console.WriteLine(hiddenText);
+        if (hiddenText.All(c=> c == '_' || c == ' ' ))
+        {
+            break;
+        }
+        Console.WriteLine("Press enter to practice or type 'quit' to quit");
+        userAnswer = Console.ReadLine();
 
+        
        } 
        Console.WriteLine("Program ended.");
     }
