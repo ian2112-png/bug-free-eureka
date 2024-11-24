@@ -1,6 +1,7 @@
 
 public class Word
 {
+    //creating attribute
     private string _words;
 
     public Word(string words)

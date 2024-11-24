@@ -22,6 +22,7 @@ public Reference(string book, int chapter, int verse, int lastVerse)
 }
 public void Display()
 {
+    //if lastVerse has a value, it will be printed. otherwise it will print just the one verse
 if (_lastVerse.HasValue)
 {
  Console.WriteLine($"{_book} {_chapter}:{_verse}-{_lastVerse}");
