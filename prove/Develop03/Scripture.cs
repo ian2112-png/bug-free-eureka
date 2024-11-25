@@ -3,6 +3,8 @@ public class Scripture  //a scripture HAS a list of words and a reference.
     private Word _scripture;
     private Reference _reference;
 
+
+
    
     public Scripture(Reference reference)
     {
