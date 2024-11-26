@@ -19,7 +19,9 @@ class PickaScripture
         int index = _random.Next(_scriptures.Count);
         var randomPair = _scriptures.ElementAt(index);
         Console.WriteLine(randomPair.Key);
-        return new Scripture(randomPair.Key);
+        Scripture temp = new Scripture(randomPair.Key);
+        temp.AddScripture(randomPair.Value);
+        return temp;
     }
 
     public void Display()

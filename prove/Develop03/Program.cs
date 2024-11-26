@@ -19,18 +19,18 @@ class Program
         picker.AddScripture(new Reference("Helaman 7:3"), new Word("And they did reject all his words, insomuch that he could not stay among them, but returned again unto the land of his nativity."));
 
         scripture1.AddScripture(new Word("For God so loved the world that he gave His Only Begotten Son, that whosoever believeth in Him shall not perish but have everlasting life."));
-        scripture2.AddScripture(new Word("And it came to pass that Jared was anointed king over the people, by the hand of wickedness; and he gave unto Akish his daughter to wife."));
+       // scripture2.AddScripture(new Word("And it came to pass that Jared was anointed king over the people, by the hand of wickedness; and he gave unto Akish his daughter to wife."));
         
         
         scripture1.Display();
 
         Console.WriteLine("Welcome to scripture memorization practice. Press enter to practice or type 'quit' to quit");
         string userAnswer = Console.ReadLine();
+        Scripture randomScripture = picker.GetRandom();
 
         while (userAnswer != "quit")
         {
             Console.Clear();
-            Scripture randomScripture = picker.GetRandom();
             string hiddenText = randomScripture.HideWords();
             Console.WriteLine(hiddenText);
 
