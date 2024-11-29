@@ -1,9 +1,12 @@
 using System;
+using System.Collections.Generic;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop04 World!");
+        Activity activity1 = new();
+        activity1.DisplayWelcomeMessage();
+        activity1.DisplayAnimation();
     }
 }
