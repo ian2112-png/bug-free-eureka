@@ -20,22 +20,23 @@ class Program
         switch (activityChoice)
         {
             case 1: 
-                BreathingActivity breathing = new("You have opted for the breathing activity. ");
-                breathing.DisplayWelcomeMessage();
+                BreathingActivity breathing = new("This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing. The activity will start momentarily. ");
                 Console.WriteLine(breathing);
+                breathing.DisplayWelcomeMessage();
                 breathing.DisplayAnimation();
+                breathing.Countdown();
                 break;
             case 2:
                 ReflectionActivity reflection = new("You have opted for the reflection activity. ");
-                reflection.DisplayWelcomeMessage();
                 Console.WriteLine(reflection);
+                reflection.DisplayWelcomeMessage();
                 reflection.DisplayAnimation();
                 break;
             case 3:
 
                 ListingActivity listing1 = new("You have opted for the listing activity. ");
-                listing1.DisplayWelcomeMessage();
                 Console.WriteLine(listing1);
+                listing1.DisplayWelcomeMessage();
                 listing1.DisplayAnimation();
                 break;
 
