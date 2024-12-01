@@ -37,7 +37,7 @@ class Activity
             foreach(var anim in animationCharacters)
             {
             Console.Write(anim);
-            Thread.Sleep(800);
+            Thread.Sleep(500);
             Console.Write("\b \b");
             }
         }
@@ -65,4 +65,11 @@ class Activity
         Console.WriteLine(_endMessage);
         Console.WriteLine($"You did the activity for {_duration} seconds");
     }
+    // public void DisplayCountdownTimer()
+    // {
+    //     for (int i = 0; i < 3; i++)
+    //     {
+    //         Console.WriteLine(i);
+    //     }
+    // }
 }
