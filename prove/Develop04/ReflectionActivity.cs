@@ -4,7 +4,7 @@ class ReflectionActivity : Activity
    private List<string> _prompts = new List<string>();
    private List<string> _reflectionQuestions = new List<string>();
 
-   public ReflectionActivity(string specificDescription)  
+   public ReflectionActivity(string specificDescription, string welcomeMessage = "Welcome to the mindfulness activity.", string commonDescription = "This program will help you relax your mind.", int duration = 30, string endMessage ="Good job. Thank you for participating in the reflection activity.") : base(welcomeMessage, commonDescription, duration, endMessage) 
    {
     _specificDescription = specificDescription;
     
@@ -28,6 +28,13 @@ class ReflectionActivity : Activity
     {
         return _specificDescription;
     }
+    public override void DisplayWelcomeMessage()
+    {
+        //I got help with the virtual/override from copilot AI. 
+
+        base.DisplayWelcomeMessage();
+        Console.WriteLine(_specificDescription);
+    }
     public void AddPrompts(string prompt)
     {
         _prompts.Add(prompt);
@@ -48,4 +55,42 @@ class ReflectionActivity : Activity
     int index2 = random2.Next(_reflectionQuestions.Count);
     return _reflectionQuestions[index2];
    }
+   public override void DurationTimer()
+    {
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(_duration);
+
+        DateTime currentTime = DateTime.Now;
+        Console.WriteLine("Please reflect on this prompt");
+        
+
+        
+        while (currentTime < futureTime)
+        {
+            PerformingActivity();
+            currentTime = DateTime.Now;
+        }
+        Thread.Sleep(2000);
+        Console.WriteLine(_endMessage);
+        Console.WriteLine($"You did the activity for {_duration} seconds");
+    }
+    public override void PerformingActivity()
+    {
+        Thread.Sleep(1000);
+        string prompt = RandomPrompt();
+        Console.WriteLine(prompt);
+        DisplayAnimation();
+        Console.WriteLine("Now answer this question after a few moments to reflect. ");
+        string question = RandomQuestion();
+        Console.WriteLine(question);
+        string response = Console.ReadLine();
+
+
+    }
+    public void RunActivity()
+    {
+        DisplayWelcomeMessage();
+        DisplayAnimation();
+        DurationTimer();
+    }
 }

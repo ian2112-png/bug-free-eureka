@@ -7,7 +7,7 @@ class Activity
     protected int _duration = 30;
     private string _welcomeMessage;
     private string _commonDescription;
-    private string _endMessage;
+    protected string _endMessage;
 
     public Activity()
     {

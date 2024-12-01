@@ -44,7 +44,5 @@ class BreathingActivity : Activity
         DisplayWelcomeMessage();
         DisplayAnimation();
         DurationTimer();
-
-
     }
 }
