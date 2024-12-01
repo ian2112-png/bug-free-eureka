@@ -6,9 +6,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Activity activity1 = new();
-        // activity1.DisplayWelcomeMessage();
-        // activity1.DisplayAnimation();
+        
 
         Console.WriteLine("Here are the options for this activity. Please enter a number from 1-3");
         Console.WriteLine("1. Breathing activity. ");
@@ -20,25 +18,26 @@ class Program
         switch (activityChoice)
         {
             case 1: 
-                BreathingActivity breathing = new("This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing. The activity will start momentarily. ");
-                Console.WriteLine(breathing);
-                breathing.DisplayWelcomeMessage();
-                breathing.DisplayAnimation();
-                breathing.Countdown();
+                BreathingActivity breathing = new("This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing. The activity will start momentarily. ");
+                breathing.RunActivity();
                 break;
             case 2:
-                ReflectionActivity reflection = new("You have opted for the reflection activity. ");
+                ReflectionActivity reflection = new("This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.");
                 Console.WriteLine(reflection);
                 reflection.DisplayWelcomeMessage();
                 reflection.DisplayAnimation();
                 break;
             case 3:
 
-                ListingActivity listing1 = new("You have opted for the listing activity. ");
+                ListingActivity listing1 = new("This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.");
                 Console.WriteLine(listing1);
                 listing1.DisplayWelcomeMessage();
                 listing1.DisplayAnimation();
                 break;
+
+                case 4:
+                    Console.WriteLine("Program ended");
+                    break;
 
             
             default:

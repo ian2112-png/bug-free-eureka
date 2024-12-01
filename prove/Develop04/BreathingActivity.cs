@@ -1,8 +1,9 @@
 class BreathingActivity : Activity
 {
     private string _specificDescription;
-   public BreathingActivity(string specificDescription)  
+   public BreathingActivity(string specificDescription, string welcomeMessage = "Welcome to the mindfulness activity.", string commonDescription = "This program will help you relax your mind.", int duration = 30, string endMessage ="Good job. Thank you for participating in the breathing activity.") : base(welcomeMessage, commonDescription, duration, endMessage)  
    {
+
     _specificDescription = specificDescription;
    }
 
@@ -10,28 +11,21 @@ class BreathingActivity : Activity
     {
         //I got help with the virtual/override from copilot AI. 
 
-        Console.WriteLine(_specificDescription);
         base.DisplayWelcomeMessage();
+        Console.WriteLine(_specificDescription);
     }
-    public override void Countdown()
+    public override void PerformingActivity()
     {
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(_duration);
-
-        DateTime currentTime = DateTime.Now;
-        while (currentTime < futureTime)
-        {
-            Console.WriteLine("Breathe in...");
+        Console.WriteLine("Breathe in...");
             Thread.Sleep(4000);
             Console.WriteLine("Breathe out...");
             Thread.Sleep(4000);
-        }
-    
     }
     public void RunActivity()
     {
-        Console.WriteLine("Breathe in. ");
-        Console.WriteLine("Breathe out. ");
+        DisplayWelcomeMessage();
+        DisplayAnimation();
+        DurationTimer();
 
 
     }

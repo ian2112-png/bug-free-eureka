@@ -21,8 +21,10 @@ class Activity
         _duration = duration;
     }
     public virtual void DisplayWelcomeMessage()
-    {
-        Console.WriteLine("Welcome to the mindfulness activity. How many seconds would you like to do this activity?");
+    {   
+        Console.WriteLine(_welcomeMessage);
+        Console.WriteLine(_commonDescription);
+        Console.WriteLine("How many seconds would you like to do this activity?");
         _duration = int.Parse(Console.ReadLine());
         Console.WriteLine($"You have opted to do this activity for {_duration} seconds. Prepare to begin. ");
         }
@@ -39,8 +41,15 @@ class Activity
             Console.Write("\b \b");
             }
         }
+        Console.WriteLine();
     }
-    public virtual void Countdown()
+    
+    public virtual void PerformingActivity()
+    {
+        Console.WriteLine("Default activity...");
+        Thread.Sleep(1000);
+    }
+    public virtual void DurationTimer()
     {
         DateTime startTime = DateTime.Now;
         DateTime futureTime = startTime.AddSeconds(_duration);
@@ -49,12 +58,11 @@ class Activity
         
         while (currentTime < futureTime)
         {
-            Console.WriteLine("Breathe in...");
-            Thread.Sleep(4000);
-            Console.WriteLine("Breathe out...");
-            Thread.Sleep(4000);
-            currentTime = DateTime.Now; 
+            PerformingActivity();
+            currentTime = DateTime.Now;
         }
-    
+        Thread.Sleep(2000);
+        Console.WriteLine(_endMessage);
+        Console.WriteLine($"You did the activity for {_duration} seconds");
     }
 }
