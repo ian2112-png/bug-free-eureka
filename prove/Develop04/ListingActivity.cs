@@ -32,10 +32,39 @@ class ListingActivity : Activity
     int index3 = random3.Next(_prompts.Count);
     return _prompts[index3];
    }
-//    public void RunActivity()
-//     {
-//         DisplayWelcomeMessage();
-//         DisplayAnimation();
-//         DurationTimer();
-//     }
+   public override void PerformingActivity()
+    {
+        //Thread.Sleep(1000);
+       
+        Console.WriteLine("Enter an answer. ");
+        Console.ReadLine();
+
+        
+
+
+    }
+public override void DurationTimer()
+    {
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(_duration);
+
+        DateTime currentTime = DateTime.Now;
+        Console.WriteLine("Please reflect on this question and write a list. You can press enter after each submission.");
+        DisplayAnimation();
+        
+        string prompt = RandomPrompt();
+        Console.WriteLine(prompt);
+        int i = 0;
+        while (currentTime < futureTime)
+        {
+            PerformingActivity();
+            currentTime = DateTime.Now;
+            i++;
+        }
+        Thread.Sleep(1000);
+        Console.WriteLine(_endMessage);
+        Console.WriteLine($"You did the activity for {_duration} seconds");
+        Console.WriteLine($"You entered {i} items");
+    }
+
 }
