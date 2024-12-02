@@ -50,10 +50,11 @@ public override void DurationTimer()
 
         DateTime currentTime = DateTime.Now;
         Console.WriteLine("Please reflect on this question and write a list. You can press enter after each submission.");
-        DisplayAnimation();
         
         string prompt = RandomPrompt();
         Console.WriteLine(prompt);
+        DisplayAnimation();
+
         int i = 0;
         while (currentTime < futureTime)
         {

@@ -17,7 +17,7 @@ class BreathingActivity : Activity
     public override void PerformingActivity()
     {
         Console.WriteLine("Breathe in...");
-            Thread.Sleep(2000);
+            Thread.Sleep(500);
             for (int i = 4; i > 0; i--)
         {
             Console.Write("\b \b");
@@ -26,7 +26,7 @@ class BreathingActivity : Activity
 
         }
         Console.WriteLine();
-        Thread.Sleep(2000);
+        Thread.Sleep(500);
             Console.WriteLine("Breathe out...");
             for (int i = 4; i > 0; i--)
         {
@@ -39,10 +39,5 @@ class BreathingActivity : Activity
         Thread.Sleep(2000);
 
     }
-    // public void RunActivity()
-    // {
-    //     DisplayWelcomeMessage();
-    //     DisplayAnimation();
-    //     DurationTimer();
-    // }
+    
 }

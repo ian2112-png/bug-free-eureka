@@ -7,11 +7,16 @@ class Program
     static void Main(string[] args)
     {
         
-
-        Console.WriteLine("Here are the options for this activity. Please enter a number from 1-3");
+        bool running = true;
+        while (running)
+        {
+        Console.WriteLine("Here are the options for this activity. Please enter a number from 1-5");
+        Console.WriteLine();
         Console.WriteLine("1. Breathing activity. ");
         Console.WriteLine("2. Reflection activity");
         Console.WriteLine("3. Listing activity");
+        Console.WriteLine("4. Imagination activity");
+        Console.WriteLine("5. Exit");
 
         int activityChoice = int.Parse(Console.ReadLine());
         
@@ -32,7 +37,14 @@ class Program
                 break;
 
                 case 4:
+
+                Imagination imagination1 = new("This activity will help you relax your body by using your imagination. ");
+                imagination1.RunActivity();
+                break;
+                
+                case 5:
                     Console.WriteLine("Program ended");
+                    running = false;
                     break;
 
             
@@ -41,4 +53,5 @@ class Program
                 break;
         }
      }
+    }
 }

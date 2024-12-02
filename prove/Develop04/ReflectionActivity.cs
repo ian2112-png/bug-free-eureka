@@ -35,14 +35,6 @@ class ReflectionActivity : Activity
         base.DisplayWelcomeMessage();
         Console.WriteLine(_specificDescription);
     }
-    public void AddPrompts(string prompt)
-    {
-        _prompts.Add(prompt);
-    }
-    public void AddQuestions(string question)
-    {
-        _reflectionQuestions.Add(question);
-    }
     public string RandomPrompt()
    {
     Random random1 = new Random();
@@ -61,10 +53,13 @@ class ReflectionActivity : Activity
         DateTime futureTime = startTime.AddSeconds(_duration);
 
         DateTime currentTime = DateTime.Now;
-        Console.WriteLine("Please reflect on this prompt");
-        
+        Console.WriteLine("Please reflect on this prompt.");
         string prompt = RandomPrompt();
         Console.WriteLine(prompt);
+        Console.WriteLine("Press enter when you are ready to continue. ");
+        Console.ReadLine();
+        Console.WriteLine("Now answer these questions after a few moments to reflect. ");
+
         
         while (currentTime < futureTime)
         {
@@ -77,20 +72,12 @@ class ReflectionActivity : Activity
     }
     public override void PerformingActivity()
     {
-        //Thread.Sleep(1000);
        
         DisplayAnimation();
-        Console.WriteLine("Now answer this question after a few moments to reflect. ");
         string question = RandomQuestion();
         Console.WriteLine(question);
-        //Thread.Sleep(5000);
 
 
     }
-    // public void RunActivity()
-    // {
-    //     DisplayWelcomeMessage();
-    //     DisplayAnimation();
-    //     DurationTimer();
-    // }
+    
 }
