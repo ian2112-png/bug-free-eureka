@@ -65,6 +65,12 @@ class Activity
         Console.WriteLine(_endMessage);
         Console.WriteLine($"You did the activity for {_duration} seconds");
     }
+    public void RunActivity()
+    {
+        DisplayWelcomeMessage();
+        DisplayAnimation();
+        DurationTimer();
+    }
     // public void DisplayCountdownTimer()
     // {
     //     for (int i = 0; i < 3; i++)

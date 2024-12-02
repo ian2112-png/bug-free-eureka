@@ -63,7 +63,8 @@ class ReflectionActivity : Activity
         DateTime currentTime = DateTime.Now;
         Console.WriteLine("Please reflect on this prompt");
         
-
+        string prompt = RandomPrompt();
+        Console.WriteLine(prompt);
         
         while (currentTime < futureTime)
         {
@@ -76,21 +77,20 @@ class ReflectionActivity : Activity
     }
     public override void PerformingActivity()
     {
-        Thread.Sleep(1000);
-        string prompt = RandomPrompt();
-        Console.WriteLine(prompt);
+        //Thread.Sleep(1000);
+       
         DisplayAnimation();
         Console.WriteLine("Now answer this question after a few moments to reflect. ");
         string question = RandomQuestion();
         Console.WriteLine(question);
-        string response = Console.ReadLine();
+        //Thread.Sleep(5000);
 
 
     }
-    public void RunActivity()
-    {
-        DisplayWelcomeMessage();
-        DisplayAnimation();
-        DurationTimer();
-    }
+    // public void RunActivity()
+    // {
+    //     DisplayWelcomeMessage();
+    //     DisplayAnimation();
+    //     DurationTimer();
+    // }
 }

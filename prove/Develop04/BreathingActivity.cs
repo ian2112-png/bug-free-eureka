@@ -20,8 +20,8 @@ class BreathingActivity : Activity
             Thread.Sleep(2000);
             for (int i = 4; i > 0; i--)
         {
-            Console.Write(i);
             Console.Write("\b \b");
+            Console.Write(i);
             Thread.Sleep(1000);
 
         }
@@ -30,8 +30,8 @@ class BreathingActivity : Activity
             Console.WriteLine("Breathe out...");
             for (int i = 4; i > 0; i--)
         {
-            Console.Write(i);
             Console.Write("\b \b");
+            Console.Write(i);
             Thread.Sleep(1000);
 
         }
@@ -39,10 +39,10 @@ class BreathingActivity : Activity
         Thread.Sleep(2000);
 
     }
-    public void RunActivity()
-    {
-        DisplayWelcomeMessage();
-        DisplayAnimation();
-        DurationTimer();
-    }
+    // public void RunActivity()
+    // {
+    //     DisplayWelcomeMessage();
+    //     DisplayAnimation();
+    //     DurationTimer();
+    // }
 }

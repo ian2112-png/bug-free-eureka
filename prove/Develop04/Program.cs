@@ -28,9 +28,7 @@ class Program
             case 3:
 
                 ListingActivity listing1 = new("This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.");
-                Console.WriteLine(listing1);
-                listing1.DisplayWelcomeMessage();
-                listing1.DisplayAnimation();
+                listing1.RunActivity();
                 break;
 
                 case 4:
