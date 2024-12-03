@@ -12,4 +12,8 @@ class Doctor : Person
                                     //this is inherited from the person class
         return $"Tools: {_tools}, {GetPersonInfo()}";
     }
+     public override string GetPersonInfo()
+    {
+        return $"Doctor Doctor. My favorite tool is {_tools}. My info is : {base.GetPersonInfo()}";
+    }
 }

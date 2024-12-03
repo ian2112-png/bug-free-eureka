@@ -12,4 +12,8 @@ class Police : Person
                                     //this is inherited from the person class
         return $"Weapons: {_weapons}, {GetPersonInfo()}";
     }
+    public override string GetPersonInfo()
+    {
+        return $"I am a police man. My favorite weapon is {_weapons}. My info is : {base.GetPersonInfo()}";
+    }
 }
