@@ -31,6 +31,7 @@ class Program
         while (userAnswer != "quit")
         {
             Console.Clear();
+            randomScripture.Display();
             string hiddenText = randomScripture.HideWords();
             Console.WriteLine(hiddenText);
 

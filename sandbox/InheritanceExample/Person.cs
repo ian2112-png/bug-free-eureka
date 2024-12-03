@@ -1,4 +1,4 @@
-class Person
+abstract class Person
 {
     private string _firstName;
     private string _lastName;
@@ -11,14 +11,18 @@ class Person
         _lastName = lastName;
         _age = age;
     }
-    public virtual string GetPersonInfo()
-    {
-        return $"{_firstName} {_lastName}, {_age}";
-    }
+
+    //This abstract class will force derived classes to override the GetPersonInfo
+    public abstract string GetPersonInfo();
+    
 
     public void SetFirstName(string firstName)
     {
         _firstName = firstName;
     }
 
+    public string GetPersonsStats()
+    {
+        return $"{_firstName} {_lastName}, {_age}";
+    }
 }

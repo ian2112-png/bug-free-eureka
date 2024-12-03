@@ -33,7 +33,7 @@ public class Scripture  //a scripture HAS a list of words and a reference.
     {
         _reference.Display();
         
-        Console.WriteLine(_scripture.GetString());
+       // Console.WriteLine(_scripture.GetString());
         
     }
 }
