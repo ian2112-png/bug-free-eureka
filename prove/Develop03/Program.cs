@@ -33,7 +33,7 @@ class Program
             Console.Clear();
             randomScripture.Display();
             string hiddenText = randomScripture.HideWords();
-            Console.WriteLine(hiddenText);
+            
 
             if (hiddenText.All(c => c == '_' || c == ' '))
             {
