@@ -16,6 +16,19 @@ class Program
     Shape rectangle = new Rectangle("red",5, 4);
     Console.WriteLine(rectangle.GetColor());
     Console.WriteLine(rectangle.GetArea());
+
+    List<Shape> shapes = new List<Shape>();
+    shapes.Add(square);
+    shapes.Add(circle);
+    shapes.Add(rectangle);
+
+    foreach (Shape shape in shapes)
+    {
+        Console.WriteLine(shape.GetColor());
+        Console.WriteLine(shape.GetArea());
+
+    }
+    
     }
         
 
