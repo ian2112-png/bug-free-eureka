@@ -14,7 +14,7 @@ public void DisplayMenu()
     while (running)
     {
     Console.WriteLine("Welcome to the goals activity. Please choose from the following options.");
-    Console.WriteLine("Menu options. Please type a number 1-6}");
+    Console.WriteLine("Menu options. Please type a number 1-6");
     Console.WriteLine("1. Create New Goal");
     Console.WriteLine("2. List Goals");
     Console.WriteLine("3. Save Goals");
@@ -34,7 +34,16 @@ public void DisplayMenu()
             break;
             
         case 3:
-            GoalMenu();
+            SaveFile(_fileName);
+            break;
+        case 4:
+            LoadFile(_fileName);
+            break;
+        case 5:
+            break;
+        case 6:
+            Console.WriteLine("Exiting");
+            running = false;
             break;
 
 
@@ -123,11 +132,11 @@ public void DisplayMenu()
                     {
                         if (goal is ChecklistGoal checklistGoal)
                         {
-                            outputFile.WriteLine($"{goal.GetType().Name}|{goal.GetGoalType()}|{goal.GetName()}|{goal.GetDescription()}|{goal.GetPoints()}|{goal.GetStatus()}|{checklistGoal.GetChecklistCount()}|{checklistGoal.GetChecklistBonus()}");
+                            outputFile.WriteLine($"{goal.GetType().Name}|{goal.GetName()}|{goal.GetDescription()}|{goal.GetPoints()}|{goal.GetStatus()}|{checklistGoal.GetChecklistCount()}|{checklistGoal.GetChecklistBonus()}|{goal.GetGoalType()}");
                         }
                         else
                         {
-                        outputFile.WriteLine($"{goal.GetType().Name}{goal.GetName} | {goal.GetDescription} | {goal.GetPoints}|{goal.GetStatus()}");
+                        outputFile.WriteLine($"{goal.GetType().Name}|{goal.GetName()} | {goal.GetDescription()} | {goal.GetPoints()}|{goal.GetStatus()}|{goal.GetGoalType()}");
                         }
                     }
                 }
