@@ -4,9 +4,9 @@ class Goals
 
 {
     protected List<Goal> _goals = new List<Goal>();
-    private string _fileName;
+    private string _fileName = "goals.txt";
 
-    private int _totalPoints;
+    //private int _totalPoints;
 public void DisplayMenu()
 {
     bool running = true; 
@@ -74,7 +74,7 @@ public void DisplayMenu()
                 Console.WriteLine("How many points do you want this to be worth?");
                 int simplePoints = int.Parse(Console.ReadLine());
                 bool complete = false;
-                EternalGoal goal1 = new EternalGoal(simpleGoal, simpleDescription, simplePoints, complete, "Type: Eternal Goal");
+                SimpleGoal goal1 = new SimpleGoal(simpleGoal, simpleDescription, simplePoints, complete, "Type: Simple Goal");
                 _goals.Add(goal1);
             }
             public void CreateEternalGoal()
@@ -103,7 +103,7 @@ public void DisplayMenu()
                 Console.WriteLine("How many bonus points will you receive?");
                 int checklistBonus = int.Parse(Console.ReadLine());
                 bool complete3 = false;
-                EternalGoal goal3 = new EternalGoal(checkListGoal, checklistDescription, checklistPoints, complete3, "Type: Eternal Goal");
+                ChecklistGoal goal3 = new ChecklistGoal(checkListGoal, checklistDescription, checklistPoints, checklistCount, checklistBonus, complete3, "Type: Checklist Goal");
                 _goals.Add(goal3);
             }
 
@@ -112,6 +112,63 @@ public void DisplayMenu()
                 foreach (var goal in _goals)
                 {
                     Console.WriteLine($"Goal: {goal.GetName()}, Description: {goal.GetDescription()}, Points: {goal.GetPoints()}");
+                }
+            }
+
+            public void SaveFile(string goalFile)
+            {
+                using (StreamWriter outputFile = new StreamWriter(goalFile))
+                {
+                    foreach(Goal goal in _goals)
+                    {
+                        if (goal is ChecklistGoal checklistGoal)
+                        {
+                            outputFile.WriteLine($"{goal.GetType().Name}|{goal.GetGoalType()}|{goal.GetName()}|{goal.GetDescription()}|{goal.GetPoints()}|{goal.GetStatus()}|{checklistGoal.GetChecklistCount()}|{checklistGoal.GetChecklistBonus()}");
+                        }
+                        else
+                        {
+                        outputFile.WriteLine($"{goal.GetType().Name}{goal.GetName} | {goal.GetDescription} | {goal.GetPoints}|{goal.GetStatus()}");
+                        }
+                    }
+                }
+
+            }
+            public void LoadFile(string goalFile)
+            {
+                _goals.Clear();
+
+                string [] lines = System.IO.File.ReadAllLines(goalFile);
+                foreach(string line in lines)
+                {
+                    string[] parts = line.Split("|");
+                    string type = parts[0];
+                    string name = parts[1];
+                    string description = parts[2];
+                    int points = int.Parse(parts[3]);
+                    bool status = bool.Parse(parts[4]);
+                    string goalType = parts[5];
+                    
+                    Goal goal = null;
+                    if (type == nameof(SimpleGoal))
+                    {
+                        goal = new SimpleGoal(name, description, points, status, goalType);
+
+                    }
+                    else if (type == nameof(EternalGoal))
+                    {
+                        goal = new EternalGoal(name, description, points, status, goalType);
+                    }
+                    else if (type == nameof(ChecklistGoal))
+                    {
+                        int checklistCount = int.Parse(parts[6]);
+                        int checklistBonus = int.Parse(parts[7]);
+
+                        goal = new ChecklistGoal(name, description, points, checklistCount, checklistBonus, status, goalType);
+                    }
+                    if (goal != null)
+                    {
+                        _goals.Add(goal);
+                    } 
                 }
             }
 
