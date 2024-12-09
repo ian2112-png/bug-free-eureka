@@ -6,7 +6,7 @@ class Goals
     protected List<Goal> _goals = new List<Goal>();
     private string _fileName = "goals.txt";
 
-    //private int _totalPoints;
+    private int _totalPoints;
 public void DisplayMenu()
 {
     bool running = true; 
@@ -40,6 +40,7 @@ public void DisplayMenu()
             LoadFile(_fileName);
             break;
         case 5:
+        RecordEvent();
             break;
         case 6:
             Console.WriteLine("Exiting");
@@ -82,8 +83,8 @@ public void DisplayMenu()
                 string simpleDescription = Console.ReadLine();
                 Console.WriteLine("How many points do you want this to be worth?");
                 int simplePoints = int.Parse(Console.ReadLine());
-                bool complete = false;
-                SimpleGoal goal1 = new SimpleGoal(simpleGoal, simpleDescription, simplePoints, complete, "Type: Simple Goal");
+                bool status = false;
+                SimpleGoal goal1 = new SimpleGoal(simpleGoal, simpleDescription, simplePoints, status, "Type: Simple Goal");
                 _goals.Add(goal1);
             }
             public void CreateEternalGoal()
@@ -120,7 +121,8 @@ public void DisplayMenu()
             {
                 foreach (var goal in _goals)
                 {
-                    Console.WriteLine($"Goal: {goal.GetName()}, Description: {goal.GetDescription()}, Points: {goal.GetPoints()}");
+                    goal.Display();
+                    Console.WriteLine($"Total points: {_totalPoints}");
                 }
             }
 
@@ -132,7 +134,7 @@ public void DisplayMenu()
                     {
                         if (goal is ChecklistGoal checklistGoal)
                         {
-                            outputFile.WriteLine($"{goal.GetType().Name}|{goal.GetName()}|{goal.GetDescription()}|{goal.GetPoints()}|{goal.GetStatus()}|{checklistGoal.GetChecklistCount()}|{checklistGoal.GetChecklistBonus()}|{goal.GetGoalType()}");
+                            outputFile.WriteLine($"{goal.GetType().Name}|{goal.GetName()}|{goal.GetDescription()}|{goal.GetPoints()}|{goal.GetStatus()}|{goal.GetGoalType()}|{checklistGoal.GetChecklistCount()}|{checklistGoal.GetChecklistBonus()}");
                         }
                         else
                         {
@@ -180,7 +182,23 @@ public void DisplayMenu()
                     } 
                 }
             }
+            public void RecordEvent()
+            {
+                Console.WriteLine("Enter the name of the goal to record.");
+                string goalName = Console.ReadLine().Trim();
+                Goal goal = _goals.Find(g => g.GetName().Trim() == goalName);
+                if (goal != null)
+                {
+                    goal.RecordEvent();
+                    Console.WriteLine("Event recorded");
+                    _totalPoints += goal.GetPoints();
+                }
+                else
+                {
+                        Console.WriteLine("No such goal found.");
+                }
 
+            }
 
         }
 

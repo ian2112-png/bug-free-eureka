@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 abstract class Goal
 {
     protected string _name;
@@ -50,6 +52,10 @@ abstract class Goal
     {
         _status = value;
     }
+    public virtual bool IsComplete()
+    {
+        return _status;
+    }
     public string GetGoalType()
     {
         return _goalType;
@@ -58,5 +64,11 @@ abstract class Goal
     {
         _goalType = value;
     }
+    public virtual void Display()
+    {
+        string checkbox = _status ? "[X]" : "[]";
+        Console.WriteLine($"{checkbox} Goal: {_name} Description: {_description} Points: {_points} "); 
+    }
     public abstract void RecordEvent();
+   
 }
