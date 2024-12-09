@@ -14,13 +14,14 @@ public void DisplayMenu()
     while (running)
     {
     Console.WriteLine("Welcome to the goals activity. Please choose from the following options.");
-    Console.WriteLine("Menu options. Please type a number 1-6");
+    Console.WriteLine("Menu options. Please type a number 1-7");
     Console.WriteLine("1. Create New Goal");
     Console.WriteLine("2. List Goals");
     Console.WriteLine("3. Save Goals");
     Console.WriteLine("4. Load Goals");
     Console.WriteLine("5. Record Event");
-    Console.WriteLine("6. Quit");
+    Console.WriteLine("6. Report no daily progress.");
+    Console.WriteLine("7. Quit");
     int userInput = int.Parse(Console.ReadLine());
 
     switch (userInput)
@@ -43,6 +44,9 @@ public void DisplayMenu()
         RecordEvent();
             break;
         case 6:
+            NegativePoints();
+            break;
+        case 7:
             Console.WriteLine("Exiting");
             running = false;
             break;
@@ -202,6 +206,11 @@ public void DisplayMenu()
                         Console.WriteLine("No such goal found.");
                 }
 
+            }
+            public void NegativePoints()
+            {
+                 _totalPoints -= 50;
+                 Console.WriteLine($"50 points deducted. Total points: {_totalPoints}");
             }
 
         }
