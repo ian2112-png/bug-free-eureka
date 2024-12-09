@@ -190,8 +190,12 @@ public void DisplayMenu()
                 if (goal != null)
                 {
                     goal.RecordEvent();
-                    Console.WriteLine("Event recorded");
                     _totalPoints += goal.GetPoints();
+                    if (goal is ChecklistGoal checklistGoal && checklistGoal.IsComplete())
+                    {
+                        _totalPoints += checklistGoal.GetChecklistBonus();
+                    }
+                    
                 }
                 else
                 {

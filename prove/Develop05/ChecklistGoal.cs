@@ -11,8 +11,13 @@ public ChecklistGoal(string name, string description, int points, int checklistC
     }   
     public override void RecordEvent()
     {
+        _completedCount++;
         Console.WriteLine("Recording event");
-        IncrementCompletedCount();
+        if (_completedCount >= _checklistCount)
+        {
+            SetStatus(true);
+            Console.WriteLine("Checklist goal completed!");
+        }
     }
     public int GetChecklistCount()
     {
@@ -34,14 +39,7 @@ public ChecklistGoal(string name, string description, int points, int checklistC
     {
         return _completedCount;
     }
-    public void IncrementCompletedCount()
-    {
-        _completedCount++;
-        if (_completedCount >= _checklistCount)
-        {
-            SetStatus(true);
-        }
-    }
+    
     public override bool IsComplete()
     {
         return GetStatus();
