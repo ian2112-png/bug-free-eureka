@@ -9,7 +9,7 @@ public DinnerRecipes(string dinnerVegetable, string name, string cuisineType, in
 public override void Display()
     {
         base.Display();
-        Console.WriteLine($"Breakfast fruit: {_dinnerVegetable}");
+        Console.WriteLine($"Dinner vegetable: {_dinnerVegetable}");
         
     }
 }

@@ -43,7 +43,15 @@ class Recipes
     }
     public virtual void Display()
     {
-        Console.WriteLine($"Ingredients: {_ingredients} Calories: {_calories}");
+        Console.WriteLine($"Name: {_name}");
+        Console.WriteLine($"Cuisine Type: {_cuisineType}");
+        Console.WriteLine("Ingredients:");
+        foreach(var ingredient in _ingredients)
+        {
+            Console.Write(ingredient);
+        }
+        Console.WriteLine("");
+        Console.WriteLine($"Calories: {_calories}");
 
     }
 }

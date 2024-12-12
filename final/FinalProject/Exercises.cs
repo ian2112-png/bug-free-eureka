@@ -22,4 +22,11 @@ public void DisplayExercises()
         Console.WriteLine(exercise);
     }
 }
+public void RandomExercises()
+{
+    Random random = new Random();
+    int index = random.Next(_exercises.Count);
+    Console.WriteLine("Exercise for today: ");
+    Console.WriteLine( _exercises[index]);
+}
 }
