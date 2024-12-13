@@ -23,6 +23,7 @@ class Goals
 
     public void ShowGoals()
     {
+        Console.WriteLine("This is your list of goals.");
         foreach(var goal in _goals)
         {
             Console.WriteLine(goal);
